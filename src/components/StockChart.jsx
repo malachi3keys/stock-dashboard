@@ -34,7 +34,7 @@ export const StockChart = ({ chartData, symbol }) => {
       animations: {
         speed: 1300
       }, 
-      width: '100%'
+      height: '100%'
     },
     xaxis: {
       type: 'datetime',
@@ -57,15 +57,15 @@ export const StockChart = ({ chartData, symbol }) => {
   const renderButtonSelect = (button) => {
     const classes = 'time-btn'
     if (button === dateFormat) {
-      return classes + 'time-btn-selected'
+      return `${classes} time-btn-selected`
     } else {
-      return classes + 'time-btn-plain'
+      return `${classes} time-btn-plain`
     }
   }
   
   return <div className='stock-chart'>
     <Chart options={options} series={series} type='area' width='100%' />
-    <div>
+    <div className='time-btn-container'>
       <button onClick={() => setDateFormat('24h')} className={renderButtonSelect('24h')}>24h</button>
       <button onClick={() => setDateFormat('7d')} className={renderButtonSelect('7d')}>7d</button>
       <button onClick={() => setDateFormat('1y')} className={renderButtonSelect('1y')}>1y</button>

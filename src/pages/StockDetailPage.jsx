@@ -18,10 +18,9 @@ export const StockDetailPage = () => {
   const [chartData, setChartData] = useState()
   const { symbol } = useParams()
   useEffect(() => {
-    // let isMounted = true
     const fetchData = async () => {
       const date = new Date()
-      console.log(date)
+      // console.log(date)
       const currentTime = Math.floor(date.getTime() / 1000)
 
       // stock market closed on the weekend, need to grab data for last days it was open
@@ -68,7 +67,7 @@ export const StockDetailPage = () => {
             }
           })
         ])
-        console.log(responses)
+        // console.log(responses)
 
         setChartData({
           day: formatData(responses[0].data),
@@ -78,13 +77,13 @@ export const StockDetailPage = () => {
       } catch (err) {
         console.log(err)
       }
-    }
+    } 
     fetchData()
   }, [symbol])
 
-  return <div>
+  return <div className='detail'>
     {chartData && (
-      <div className='detail'>
+      <div className='dashboard'>
         <StockChart chartData={chartData} symbol={symbol} />
         <StockData symbol={symbol} />
       </div>

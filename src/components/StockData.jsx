@@ -13,7 +13,7 @@ export const StockData = ({ symbol }) => {
             symbol
           }
         })
-        console.log(response)
+        // console.log(response)
         if (isMounted) {
           setStockData(response.data)
         }
@@ -24,52 +24,50 @@ export const StockData = ({ symbol }) => {
     fetchData()
     return () => (isMounted = false);
   }, [symbol])
+  
   return <div>
     {stockData && (
 
       <div className="stock-data">
-        <div className="data-col">
-          <div>
-            <span className="stock-data-title">name: </span>
+        
+          <div className="data-cube">
+            <div className="stock-data-title">Name </div>
             {stockData.name}
           </div>
-          <div>
-            <span className="stock-data-title">country: </span>
+          <div className="data-cube">
+            <div className="stock-data-title">Country </div>
             {stockData.country}
           </div>
-          <div>
-            <span className="stock-data-title">ticker: </span>
+          <div className="data-cube">
+            <div className="stock-data-title">Ticker </div>
             {stockData.ticker}
           </div>
-        </div>
-        <div className="data-col">
-          <div>
-            <span className="stock-data-title">Exchange: </span>
+        
+          <div className="data-cube">
+            <div className="stock-data-title">Exchange </div>
             {stockData.exchange}
           </div>
-          <div>
-            <span className="stock-data-title">Industry: </span>
+          <div className="data-cube">
+            <div className="stock-data-title">Industry </div>
             {stockData.finnhubIndustry}
           </div>
-          <div>
-            <span className="stock-data-title">IPO: </span>
+          <div className="data-cube">
+            <div className="stock-data-title">IPO </div>
             {stockData.ipo}
           </div>
-        </div>
-        <div className="data-col">
-          <div>
-            <span className="stock-data-title">MarketCap: </span>
+        
+          <div className="data-cube">
+            <div className="stock-data-title">Market Cap </div>
             {stockData.marketCapitalization}
           </div>
-          <div>
-            <span className="stock-data-title">Shares Outstanding: </span>
+          <div className="data-cube">
+            <div className="stock-data-title">Shares Outstanding </div>
             {stockData.shareOutstanding}
           </div>
-          <div>
-            <span className="stock-data-title">url: </span>
+          <div className="data-cube">
+            <div className="stock-data-title">url </div>
             <a href={stockData.weburl} target="_blank" rel="noopener noreferrer">{stockData.weburl}</a>
           </div>
-        </div>
       </div>
 
     )
